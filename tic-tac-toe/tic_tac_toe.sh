@@ -13,21 +13,18 @@ print_board() {
 }
 
 check_winner() {
-    # rows
     for i in 0 3 6; do
         if [[ ${board[$i]} == $1 && ${board[$i+1]} == $1 && ${board[$i+2]} == $1 ]]; then
             return 0
         fi
     done
 
-    # columns
     for i in 0 1 2; do
         if [[ ${board[$i]} == $1 && ${board[$i+3]} == $1 && ${board[$i+6]} == $1 ]]; then
             return 0
         fi
     done
 
-    # diagonals
     if [[ ${board[0]} == $1 && ${board[4]} == $1 && ${board[8]} == $1 ]]; then
         return 0
     elif [[ ${board[2]} == $1 && ${board[4]} == $1 && ${board[6]} == $1 ]]; then
@@ -48,9 +45,7 @@ check_draw() {
 
 play_game() {
     initialize_board
-
     player="X"
-
     while true; do
         clear
         echo "Tic Tac Toe"
@@ -84,7 +79,7 @@ play_game() {
             continue
         fi
 
-        board[$move-1] = $player
+        board[$move-1]=$player
 
         if [[ $player == "X" ]]; then
             player="O"
