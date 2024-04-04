@@ -1,0 +1,32 @@
+version: "3.1"
+
+rules:
+  - rule: Respond to greet
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+
+  - rule: Show menu
+    steps:
+      - intent: ask_menu
+      - action: action_show_menu
+
+  - rule: Order food
+    steps:
+      - intent: order_food
+      - action: action_order_food
+
+  - rule: Inquire about price
+    steps:
+      - intent: inquire_price
+      - action: action_inquire_price
+
+  - rule: Inquire about preparation time
+    steps:
+      - intent: inquire_preparation_time
+      - action: action_inquire_preparation_time
+
+  - rule: Inquire about opening hours
+    steps:
+      - intent: inquire_opening_hours
+      - action: action_inquire_opening_hours

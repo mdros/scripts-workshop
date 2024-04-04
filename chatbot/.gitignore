@@ -1,0 +1,6 @@
+rasa/.rasa/
+.venv
+.env
+.python-version
+menu.json
+opening_hours.json

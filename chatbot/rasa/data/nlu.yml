@@ -1,0 +1,41 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey
+      - hi there
+      - hello there
+      - hey there
+  - intent: ask_menu
+    examples: |
+      - What do you have on the menu?
+      - Can you show me the menu?
+      - What dishes do you offer?
+      - Tell me about your menu
+      - What are the available dishes?
+  - intent: order_food
+    examples: |
+      - I'd like to order {food_item}
+      - Can I get {food_item}, please?
+      - I want {food_item}
+      - Give me {food_item}
+  - intent: inquire_price
+    examples: |
+      - How much is {food_item}?
+      - What's the price of {food_item}?
+      - What does {food_item} cost?
+  - intent: inquire_preparation_time
+    examples: |
+      - How long does {food_item} take to prepare?
+      - What's the preparation time for {food_item}?
+      - How much time does {food_item} need to be ready?
+  - intent: inquire_opening_hours
+    examples: |
+      - When do you open on {day}?
+      - What are your opening hours on {day}?
+      - What time do you open on {day}?
+      - What time do you close on {day}?
+      - Are you open today?

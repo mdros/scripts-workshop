@@ -1,0 +1,45 @@
+version: "3.1"
+
+entities:
+  - food_item
+  - day
+
+slots:
+  menu_item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: menu_item
+  day:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: day
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: time
+
+intents:
+  - greet
+  - ask_menu
+  - order_food
+  - inquire_price
+  - inquire_preparation_time
+  - inquire_opening_hours
+
+actions:
+  - action_show_menu
+  - action_order_food
+  - action_inquire_price
+  - action_inquire_preparation_time
+  - action_inquire_opening_hours
+  - action_utter_greet
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

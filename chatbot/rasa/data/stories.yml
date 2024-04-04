@@ -1,0 +1,37 @@
+version: "3.1"
+
+stories:
+  - story: Greet and ask menu
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+      - intent: ask_menu
+      - action: action_show_menu
+
+  - story: Order food
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+      - intent: order_food
+      - action: action_order_food
+
+  - story: Inquire about price
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+      - intent: inquire_price
+      - action: action_inquire_price
+
+  - story: Inquire about preparation time
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+      - intent: inquire_preparation_time
+      - action: action_inquire_preparation_time
+
+  - story: Inquire about opening hours
+    steps:
+      - intent: greet
+      - action: action_utter_greet
+      - intent: inquire_opening_hours
+      - action: action_inquire_opening_hours
