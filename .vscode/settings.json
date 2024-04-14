@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://bitbucket.org/atlassianlabs/intellij-bitbucket-references-plugin/raw/master/src/main/resources/schemas/bitbucket-pipelines.schema.json": "file:///Users/michaldros/dev/university/scripts_workshop/chatbot/rasa/data/rules.yml"
+    }
+}
