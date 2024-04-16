@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1713304462882,
+      "tag": "0000_early_alex_wilder",
+      "breakpoints": true
+    }
+  ]
+}

@@ -4,17 +4,16 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "db:gen": "turbo db:gen",
+    "db:push": "turbo db:push",
+    "ui:gen": "turbo ui:gen"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
+    "@biomejs/biome": "1.6.4",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
+  "packageManager": "pnpm@8.14.1",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }
