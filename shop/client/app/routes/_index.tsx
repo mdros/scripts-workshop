@@ -62,34 +62,67 @@ export const loader = async () => {
 export const action = async ({ request }: ActionFunctionArgs) => {
 	const formData = await request.formData();
 
-	const name = formData.get("name");
-	const categoryId = formData.get("categoryId");
+	const action = formData.get("action");
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const errors: any = {};
+	switch (action) {
+		case "add_product": {
+			const name = formData.get("name");
+			const categoryId = formData.get("categoryId");
 
-	if (name === "") {
-		errors.name = "Name is empty";
+			// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+			const errors: any = {};
+
+			if (name === "") {
+				errors.name = "Name is empty";
+			}
+
+			if (Object.keys(errors).length > 0) {
+				return json({ errors });
+			}
+
+			const product = await fetch("http://localhost:8080/products", {
+				method: "POST",
+				body: JSON.stringify({
+					name: String(name),
+					categoryId: categoryId !== "" ? Number(categoryId) : undefined,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+					connection: "keep-alive",
+				},
+			});
+
+			return redirect(".");
+		};
+		case "add_category": {
+			const name = formData.get("name");
+
+			// biome-ignore lint/suspicious/noExplicitAny
+			const errors: any = {};
+
+			if (name === "") {
+				errors.name = "Name is empty";
+			}
+
+			if (Object.keys(errors).length > 0) {
+				return json({ errors });
+			}
+
+			const category = await fetch("http://localhost:8080/categories", {
+				method: "POST",
+				body: JSON.stringify({
+					name: String(name),
+				}),
+				headers: {
+					"Content-Type": "application/json",
+					connection: "keep-alive",
+				},
+			});
+
+			return redirect(".");
+		}
 	}
 
-	if (Object.keys(errors).length > 0) {
-		return json({ errors });
-	}
-
-	const product = await fetch("http://localhost:8080/products", {
-		method: "POST",
-		body: JSON.stringify({
-			name: String(name),
-			categoryId: categoryId !== "" ? Number(categoryId) : undefined,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-			connection: "keep-alive",
-		},
-	});
-	console.log(product);
-
-	return redirect(".");
 };
 
 export default function Index() {
@@ -106,6 +139,7 @@ export default function Index() {
 			<div style={{ paddingTop: "24px" }}>
 				<span>Add new product:</span>
 				<Form method="post">
+					<input type="hidden" name="action" value="add_product" />
 					<div style={{ display: "flex", flexDirection: "column" }}>
 						<label>
 							Name: <input name="name" />
@@ -121,6 +155,20 @@ export default function Index() {
 									</option>
 								))}
 							</select>
+						</label>
+					</div>
+
+					<button type="submit">Create</button>
+				</Form>
+			</div>
+
+			<div style={{ paddingTop: "24px" }}>
+				<span>Add new category:</span>
+				<Form method="post">
+					<input type="hidden" name="action" value="add_category" />
+					<div style={{ display: "flex", flexDirection: "column" }}>
+						<label>
+							Name: <input name="name" />
 						</label>
 					</div>
 
