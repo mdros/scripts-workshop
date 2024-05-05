@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@prisma/client": "5.13.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.2",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.8",
+    "prisma": "^5.13.0",
+    "typescript": "^5.4.5"
+  }
+}

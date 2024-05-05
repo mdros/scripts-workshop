@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev:server": "bun ./server/server.ts",
+    "dev:client": "cd client && bun dev"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.2",
+    "@types/cors": "^2.8.17"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
+}
